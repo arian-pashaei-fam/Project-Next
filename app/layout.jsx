@@ -1,15 +1,23 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Rubik } from "next/font/google";
+
+// Global CSS
 import "./globals.css";
 
 // Componnets
 import Navbar from "./components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
+// // About Fonts
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+// // About Fonts
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
+// // My fonts
+const rubik = Rubik({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -23,7 +31,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`
+          ${rubik.variable} 
+          antialiased`}
       >
         <Navbar />
         {children}
