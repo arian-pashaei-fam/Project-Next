@@ -1,138 +1,160 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+@import "tailwindcss";
 
-:root{
-  --primary: #efb6b2;
-  --secondary: #4e4e4e;
-  --error: #ff4a4a;
-}
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
-/* base styles & title */
-body{
-  font-family: "Noto Serif";
-  color: var(--secondary);
-}
-.App{
-  max-width: 960px;
-  margin: 0 auto;
-}
-.title h1{
-  color: var(--primary);
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  font-weight: normal;
-}
-.title h2, .title p{
-  text-align: center;
-}
-.title h2{
-  margin-top: 60px;
-  font-size: 2.6rem;
+@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56e4;
+  --secondary: #7209b7;
+  --success: #4cc9f0;
+  --warning: #f72585;
+  --danger: #e63946;
+  --light: #f8f9fa;
+  --dark: #212529;
 }
 
-/* upload form styles */
-form{
-  margin: 30px auto 10px;
-  text-align: center;
-}
-label input{
-  height: 0;
-  width: 0;
-  opacity: 0;
-}
-label{
-  display: block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--primary);
-  border-radius: 50%;
-  margin: 10px auto;
-  line-height: 30px;
-  color: var(--primary);
-  font-weight: bold;
-  font-size: 24px;
-}
-label:hover{
-  background: var(--primary);
-  color: white;
-}
-.output{
-  height: 60px;
-  font-size: 0.8rem;
-}
-.error{
-  color: var(--error);
+/* ======= تایپوگرافی ======= */
+body {
+  @apply bg-gray-50 text-gray-800 font-sans;
 }
 
-/* progress bar styles */
-.progress-bar{
-  height: 5px;
-  background: var(--primary);
-  margin-top: 20px;
+h1 {
+  @apply text-3xl font-bold mb-4 text-gray-900;
 }
 
-/* image grid styles */
-.img-grid{
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 40px;
-}
-.img-wrap{
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  padding: 50% 0;
-  /* padding controls height, will always be perfectly square regardless of width */
-  position: relative;
-  opacity: 0.8;
-}
-.img-wrap img{
-  min-width: 100%;
-  min-height: 100%;
-  max-width: 150%;
-  position: absolute;
-  top: 0;
-  left: 0;
+h2 {
+  @apply text-2xl font-semibold mb-3 text-gray-800;
 }
 
-/* modal styles */
-.backdrop{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-}
-.backdrop img{
-  display: block;
-  max-width: 60%;
-  max-height: 80%;
-  margin: 60px auto;
-  box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
-  border: 3px solid white;
+/* ======= کامپوننت‌های اصلی ======= */
+/* کارت‌ها */
+.card {
+  @apply bg-white rounded-xl shadow-md p-6 mb-6 transition-all hover:shadow-lg;
 }
 
-/* delete button styles */
-.delete-button {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: transparent;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset,
-    0 0 4px rgba(0, 0, 0, 0.2);
+/* دکمه‌ها */
+.btn {
+  @apply px-5 py-2.5 rounded-lg font-medium transition-all duration-200;
 }
 
-.delete-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-} 
+.btn-primary {
+  @apply bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)];
+}
+
+.btn-outline {
+  @apply border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white;
+}
+
+/* فرم‌ها */
+.input-group {
+  @apply mb-4;
+}
+
+.input-label {
+  @apply block mb-2 font-medium text-gray-700;
+}
+
+.input-field {
+  @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent;
+}
+
+/* ناوبری */
+.navbar {
+  @apply bg-white shadow-sm py-3 px-6 flex justify-between items-center;
+}
+
+.nav-link {
+  @apply px-4 py-2 text-gray-600 hover:text-[var(--primary)] transition-colors;
+}
+
+/* لیست تسک‌ها */
+.task-list {
+  @apply space-y-3;
+}
+
+.task-item {
+  @apply flex items-center justify-between p-4 bg-white border-l-4 rounded-lg shadow-sm;
+  border-left-color: var(--primary);
+}
+
+.task-item-high-priority {
+  border-left-color: var(--danger);
+}
+
+/* وضعیت‌ها */
+.status-badge {
+  @apply px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-todo {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-in-progress {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.status-done {
+  @apply bg-green-100 text-green-800;
+}
+
+/* داشبورد */
+.dashboard-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+}
+
+.dashboard-card {
+  @apply p-5 rounded-xl shadow-md;
+}
+
+/* ======= افکت‌های خاص ======= */
+.task-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+  @apply shadow-md;
+  transform: translateY(-2px);
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* pill styles */
+
+.pill {
+  @apply py1 px2 mt-3 inline-block text-xs font-semibold;
+}
+
+.pill.high {
+  @apply bg-red-300 text-red-600;
+}
+
+.pill.medium {
+  @apply bg-blue-300 text-blue-600;
+}
+
+.pill.low {
+  @apply bg-emerald-300 text-emerald-600;
+}
+.card .pill {
+  @apply absolute bottom-0 right-0 rounded-tl-md;
+}

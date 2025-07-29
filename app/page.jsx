@@ -3,9 +3,9 @@ import "./globals.css";
 
 export default function Home() {
   return (
-    <div>
+    <div className="p-10 bg-blue-500 text-white text-3xl">
       <h2>Dashboard</h2>
-      <p>
+      <p className="dashboard-card">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
         voluptatibus odit! Error exercitationem officiis suscipit numquam
         perferendis, explicabo quam labore enim voluptatum, ab obcaecati officia
@@ -14,13 +14,13 @@ export default function Home() {
 
       <div className="flex justify-center my-8">
         <Link href="/tickets">
-          <button className="btn-primary">View Tickets</button>
+          <button className="btn btn-primary btn-outline" >View Tickets</button>
         </Link>
       </div>
 
       <h2>Company Update</h2>
 
-      <div className="card">
+      <div className="dashboard-card">
         <h3>New member of the web dev team ...</h3>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -30,7 +30,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="card">
+      <div className="dashboard-card">
         <h3>New website live!</h3>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -42,3 +42,5 @@ export default function Home() {
     </div>
   );
 }
+
+
