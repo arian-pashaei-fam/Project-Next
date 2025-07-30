@@ -1,138 +1,347 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
-@import "tailwindcss/preflight";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities"; */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
+  /* 🎨 پالت رنگی پیشرفته */
   --primary: #4361ee;
-  --primary-dark: #3a56e4;
+  --primary-dark: #3a56d4;
   --secondary: #7209b7;
-  --success: #4cc9f0;
-  --warning: #f72585;
-  --danger: #e63946;
+  --accent: #06d6a0;
+  --dark: #1e1e2c;
   --light: #f8f9fa;
-  --dark: #212529;
+  --danger: #ef476f;
+  --warning: #ffd166;
+
+  /* ✨ سایه‌های مدرن */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+  /* 📏 انیمیشن‌های نرم */
+  --transition-fast: all 0.15s ease;
+  --transition-medium: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
 }
 
-/* ======= تایپوگرافی ======= */
+/* 🔁 ریست هوشمند */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
 body {
-  @apply bg-gray-50 text-gray-800 font-sans;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: #f5f7ff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🖋 تایپوگرافی پیشرفته */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  @apply text-3xl font-bold mb-4 text-gray-900;
+  font-size: 2.5rem;
 }
-
 h2 {
-  @apply text-2xl font-semibold mb-3 text-gray-800;
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
 }
 
-/* ======= کامپوننت‌های اصلی ======= */
-/* کارت‌ها */
-.card {
-  @apply bg-white rounded-xl shadow-md p-6 mb-6 transition-all hover:shadow-lg;
+p {
+  margin-bottom: 1.25rem;
+  max-width: 65ch;
 }
 
-/* دکمه‌ها */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition-medium);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* 🧱 کامپوننت‌های عمومی */
+div {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 .btn {
-  @apply px-5 py-2.5 rounded-lg font-medium transition-all duration-200;
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border: none;
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
 }
 
-.btn-primary {
-  @apply bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)];
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: var(--primary-dark);
 }
 
 .btn-outline {
-  @apply border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
 }
 
-/* فرم‌ها */
-.input-group {
-  @apply mb-4;
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
 }
 
-.input-label {
-  @apply block mb-2 font-medium text-gray-700;
+/* 🖼 تصاویر واکنش‌گرا */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
 }
 
-.input-field {
-  @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent;
+/* 📱 رسپانسیو بودن پیشرفته */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
 }
 
-/* ناوبری */
-.navbar {
-  @apply bg-white shadow-sm py-3 px-6 flex justify-between items-center;
+/* 🕶 پشتیبانی حالت دارک (Dark Mode) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  :root {
+    --light: #1e1e1e;
+    --dark: #f0f0f0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  }
 }
 
-.nav-link {
-  @apply px-4 py-2 text-gray-600 hover:text-[var(--primary)] transition-colors;
+/* ✨ افکت‌های ویژه */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
 }
 
-/* لیست تسک‌ها */
-.task-list {
-  @apply space-y-3;
-}
-
-.task-item {
-  @apply flex items-center justify-between p-4 bg-white border-l-4 rounded-lg shadow-sm;
-  border-left-color: var(--primary);
-}
-
-.task-item-high-priority {
-  border-left-color: var(--danger);
-}
-
-/* وضعیت‌ها */
-.status-badge {
-  @apply px-3 py-1 rounded-full text-xs font-medium;
-}
-
-.status-todo {
-  @apply bg-yellow-100 text-yellow-800;
-}
-
-.status-in-progress {
-  @apply bg-blue-100 text-blue-800;
-}
-
-.status-done {
-  @apply bg-green-100 text-green-800;
-}
-
-/* داشبورد */
-.dashboard-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
-}
-
-.dashboard-card {
-  @apply p-5 rounded-xl shadow-md;
-}
-
-/* ======= افکت‌های خاص ======= */
-.task-item {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.task-item:hover {
-  @apply shadow-md;
-  transform: translateY(-2px);
-}
-
-/* انیمیشن‌ها */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.fade-in {
-  animation: fadeIn 0.3s ease-in;
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-medium);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition-medium);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.mobile-menu.active {
+  max-height: 500px;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  list-style: none;
+  gap: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background-color: rgba(30, 30, 30, 0.9);
+  }
+
+  .mobile-nav-links {
+    background: rgba(30, 30, 30, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* pill styles */
@@ -140,7 +349,6 @@ h2 {
 .pill {
   @apply py-1 px-2 mt-3 inline-block text-xs font-semibold;
 }
-
 
 .pill.high {
   @apply bg-red-300 text-red-600;

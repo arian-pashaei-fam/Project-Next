@@ -1,27 +1,38 @@
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import Logo from "./logo2.png";
+// import { useState } from "react";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <div>
-      <nav className="navbar">
-        <Image
-          src={Logo}
-          alt="Arian Logo"
-          width={100}
-          quality={100}
-          placeholder="blur"
-        />
-        <h2>Arian test</h2>
-        <Link className="nav-link " href="/">
-          Dashboard
-        </Link>
-        <br />
-        <Link className="nav-link " href="/tickets">
-          Tickets
-        </Link>
-      </nav>
-    </div>
+    <nav className="navbar">
+      <div className="nav-container">
+        <a href="/" className="nav-logo">
+          <Image
+            src={Logo}
+            alt="Arian Logo"
+            width={100}
+            quality={100}
+            placeholder="blur"
+          />
+          <span>Project Next</span>
+        </a>
+
+        <ul className="nav-links">
+          <li>
+            <a href="/" className="nav-link active">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="/tickets" className="nav-link">
+              Tickets
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
-}
+};
+
+export default Navbar;
