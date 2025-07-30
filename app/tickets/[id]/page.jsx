@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 // render static
 export async function generateStaticParams() {
   const res = await fetch("http://localhost:4000/tickets");
@@ -15,6 +17,10 @@ async function getTickets(id) {
     },
   });
 
+  // 404 for as id
+  if (!res.ok) {
+    notFound();
+  }
   return res.json();
 }
 
