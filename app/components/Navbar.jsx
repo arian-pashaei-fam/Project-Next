@@ -1,4 +1,4 @@
-// import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import Logo from "./logo2.png";
 // import { useState } from "react";
@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <a href="/" className="nav-logo">
+        <Link href="/" className="nav-logo">
           <Image
             src={Logo}
             alt="Arian Logo"
@@ -15,19 +15,19 @@ const Navbar = () => {
             quality={100}
             placeholder="blur"
           />
-          <span>Project Next</span>
-        </a>
+          <span style={{ color: "gray" }}>Project Next</span>
+        </Link>
 
         <ul className="nav-links">
           <li>
-            <a href="/" className="nav-link active">
+            <Link href="/" className="nav-link nav-actions">
               Dashboard
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/tickets" className="nav-link">
+            <Link href="/tickets" className="nav-link nav-actions">
               Tickets
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

@@ -86,18 +86,18 @@ p {
   max-width: 65ch;
 }
 
-a {
+Link {
   color: var(--primary);
   text-decoration: none;
   transition: var(--transition-fast);
   position: relative;
 }
 
-a:hover {
+Link:hover {
   color: var(--primary-dark);
 }
 
-a::after {
+/* Link::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -106,14 +106,14 @@ a::after {
   height: 2px;
   background: var(--accent);
   transition: var(--transition-medium);
-}
+} */
 
-a:hover::after {
+Link:hover::after {
   width: 100%;
 }
 
 /* 🧱 کامپوننت‌های عمومی */
-div {
+.container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -295,43 +295,6 @@ img {
   color: var(--dark);
 }
 
-/* Mobile menu styles */
-.mobile-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-out;
-}
-
-.mobile-menu.active {
-  max-height: 500px;
-}
-
-.mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.95);
-  list-style: none;
-  gap: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-  .nav-links,
-  .nav-actions {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-}
-
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .navbar {
@@ -345,7 +308,6 @@ img {
 }
 
 /* pill styles */
-
 .pill {
   @apply py-1 px-2 mt-3 inline-block text-xs font-semibold;
 }

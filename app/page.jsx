@@ -3,7 +3,7 @@ import "./globals.css";
 
 export default function Home() {
   return (
-    <div className="p-10 bg-blue-500 text-white text-3xl">
+    <div className="p-10 bg-blue-500 text-white text-3xl container">
       <h2>Dashboard</h2>
       <p className="dashboard-card">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
@@ -14,7 +14,7 @@ export default function Home() {
 
       <div className="flex justify-center my-8">
         <Link href="/tickets">
-          <button className="btn btn-primary btn-outline" >View Tickets</button>
+          <button className="btn" >View Tickets</button>
         </Link>
       </div>
 

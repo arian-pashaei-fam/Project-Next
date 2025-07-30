@@ -28,11 +28,11 @@ async function getTickets(id) {
 export default async function TicketDetails({ params }) {
   const ticket = await getTickets(params.id);
   return (
-    <main>
+    <div className="container">
       <nav>
         <h2>Tickets Details</h2>
       </nav>
-      <div className="card">
+      <div className="card ">
         <h3>{ticket.title}</h3>
         <small>Created by {ticket.user_email}</small>
         <p>{ticket.body}</p>
@@ -40,6 +40,6 @@ export default async function TicketDetails({ params }) {
           {ticket.priority} priority
         </div>
       </div>
-    </main>
+    </div>
   );
 }
