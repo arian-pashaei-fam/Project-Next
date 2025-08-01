@@ -4,7 +4,7 @@ async function getTickets() {
   // static BackEnd with json
   const res = await fetch("http://localhost:4000/tickets", {
     next: {
-      revalidate: 20,
+      revalidate: 0,
     },
   });
 
