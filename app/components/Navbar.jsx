@@ -29,6 +29,11 @@ const Navbar = () => {
               Tickets
             </Link>
           </li>
+          <li>
+            <Link href="/create" className="nav-link nav-actions">
+              Create
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
