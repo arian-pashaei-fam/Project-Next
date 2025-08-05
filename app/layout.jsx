@@ -4,7 +4,7 @@ import { Geist, Geist_Mono, Rubik } from "next/font/google";
 import "./globals.css";
 
 // Componnets
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 
 // // About Fonts
 // const geistSans = Geist({
@@ -35,7 +35,6 @@ export default function RootLayout({ children }) {
           ${rubik.variable} 
           antialiased`}
       >
-        <Navbar />
         {children}
       </body>
     </html>
