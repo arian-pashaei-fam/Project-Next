@@ -26,15 +26,6 @@
   --transition-slow: all 0.5s ease;
 }
 
-/* 🔁 ریست هوشمند */
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -57,7 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  font-weight: 650;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -83,7 +74,12 @@ h6 {
 
 p {
   margin-bottom: 1.25rem;
-  max-width: 65ch;
+  /* max-width: 65ch; */
+}
+
+small {
+  margin-bottom: 1.15rem;
+  font-size: 1rem;
 }
 
 Link {
@@ -96,21 +92,6 @@ Link {
 Link:hover {
   color: var(--primary-dark);
 }
-
-/* Link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: var(--transition-medium);
-} */
-
-/* Link:hover::after {
-  width: 100%;
-} */
 
 /* 🧱 کامپوننت‌های عمومی */
 .container {
@@ -190,7 +171,7 @@ img {
 }
 
 .card {
-  background: white;
+  background: var(--primary);
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
@@ -199,7 +180,7 @@ img {
 }
 
 .card:hover {
-  transform: translateX(-5px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-md);
 }
 
@@ -208,9 +189,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: white;
   box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(10px);
 }
 
@@ -222,17 +202,15 @@ img {
 }
 
 .nav-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.nav-logo-icon {
-  width: 32px;
-  height: 32px;
+.nav-logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4361ee;
 }
 
 .nav-links {
@@ -245,6 +223,12 @@ img {
   position: relative;
   font-weight: 500;
   padding: 0.5rem 0;
+  transition: var(--transition-medium);
+}
+
+.nav-link:hover {
+  transform: translateY(-4px);
+  color: #778ff3;
 }
 
 .nav-link::after {
@@ -254,7 +238,7 @@ img {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent);
+  background: var(--primary);
   transition: var(--transition-medium);
 }
 
@@ -293,6 +277,8 @@ img {
 /* pill styles */
 .pill {
   @apply py-1 px-2 mt-3 text-xs font-semibold;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .pill.high {
@@ -307,5 +293,75 @@ img {
   @apply bg-emerald-300 text-emerald-600;
 }
 .card .pill {
-  @apply bottom-0 right-0 rounded-tl-md;
+  @apply flex bottom-0 right-0 rounded-tl-md;
+  max-width: 10%;
+}
+
+/* Form  */
+
+form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+form label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+form span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  color: #0077b6;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #007bff;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+form button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+form button:disabled {
+  background-color: #fff;
+  cursor: not-allowed;
 }
