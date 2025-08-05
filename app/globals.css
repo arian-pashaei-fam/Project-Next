@@ -27,13 +27,13 @@
 }
 
 /* 🔁 ریست هوشمند */
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 html {
   scroll-behavior: smooth;
@@ -108,9 +108,9 @@ Link:hover {
   transition: var(--transition-medium);
 } */
 
-Link:hover::after {
+/* Link:hover::after {
   width: 100%;
-}
+} */
 
 /* 🧱 کامپوننت‌های عمومی */
 .container {
@@ -158,24 +158,6 @@ img {
   border-radius: 8px;
 }
 
-/* 📱 رسپانسیو بودن پیشرفته */
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-}
-
 /* 🕶 پشتیبانی حالت دارک (Dark Mode) */
 @media (prefers-color-scheme: dark) {
   body {
@@ -213,10 +195,11 @@ img {
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
   transition: var(--transition-medium);
+  margin: 10px;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateX(-5px);
   box-shadow: var(--shadow-md);
 }
 
@@ -309,7 +292,7 @@ img {
 
 /* pill styles */
 .pill {
-  @apply py-1 px-2 mt-3 inline-block text-xs font-semibold;
+  @apply py-1 px-2 mt-3 text-xs font-semibold;
 }
 
 .pill.high {
@@ -324,5 +307,5 @@ img {
   @apply bg-emerald-300 text-emerald-600;
 }
 .card .pill {
-  @apply absolute bottom-0 right-0 rounded-tl-md;
+  @apply bottom-0 right-0 rounded-tl-md;
 }

@@ -2,6 +2,10 @@ import { Suspense } from "react";
 import TicketList from "./TicketList";
 import Loading from "../loading";
 
+export const metadata = {
+  title: "Next Arian | Tickets"
+};
+
 export default function tickets() {
   return (
     <div className="container">
