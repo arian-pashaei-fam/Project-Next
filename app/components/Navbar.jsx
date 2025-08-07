@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "./logo2.png";
+import { use } from "react";
 // import { useState } from "react";
 
-const Navbar = () => {
+export default function Navbar({ user }) {
+  console.log("User in Navbar:", user);
+
   return (
     <nav className="navbar">
       <div className="nav-container">
@@ -34,10 +37,14 @@ const Navbar = () => {
               Create
             </Link>
           </li>
+          <li>
+            <Link href="/signup" className="nav-link nav-actions">
+              SignUp
+            </Link>
+          </li>
         </ul>
+        {user && <span>Hello, {user.email}</span>}
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

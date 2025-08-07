@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "../components/logo2.png";
 
-export default function DashboardLayout({ children }) {
+export default function AuthLayout({ children }) {
   return (
     <>
       <nav className="navbar">
@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }) {
               quality={100}
               placeholder="blur"
             />
-            <span style={{ color: "gold" }}>Navbar Auth</span>
+            <span style={{ color: "gold" }}>Auth</span>
           </Link>
 
           <ul className="nav-links">
