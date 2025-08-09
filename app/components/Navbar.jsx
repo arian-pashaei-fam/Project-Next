@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "./logo2.png";
-import { use } from "react";
-// import { useState } from "react";
+import LogouteButton from "./LogoutButton";
 
 export default function Navbar({ user }) {
   console.log("User in Navbar:", user);
@@ -21,7 +20,7 @@ export default function Navbar({ user }) {
           <span style={{ color: "gray" }}>Project Next</span>
         </Link>
 
-        <ul className="nav-links">
+        <ul className="nav-links mr-auto ml-3">
           <li>
             <Link href="/" className="nav-link nav-actions">
               Dashboard
@@ -37,13 +36,9 @@ export default function Navbar({ user }) {
               Create
             </Link>
           </li>
-          <li>
-            <Link href="/signup" className="nav-link nav-actions">
-              SignUp
-            </Link>
-          </li>
         </ul>
         {user && <span>Hello, {user.email}</span>}
+        <LogouteButton />
       </div>
     </nav>
   );

@@ -1,8 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../components/logo2.png";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function AuthLayout({ children }) {
+export default async function AuthLayout({ children }) {
+  const supabase = createServerComponentClient({ cookies });
+  const { data, error } = await supabase.auth.getSession();
+
+  if (data.session) {
+    redirect("/");
+  }
+
   return (
     <>
       <nav className="navbar">
@@ -15,7 +25,6 @@ export default function AuthLayout({ children }) {
               quality={100}
               placeholder="blur"
             />
-            <span style={{ color: "gold" }}>Auth</span>
           </Link>
 
           <ul className="nav-links">
